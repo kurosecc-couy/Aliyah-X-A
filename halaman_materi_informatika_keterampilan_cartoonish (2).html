@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Materi: Berpikir Komputasional</title>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700;800&family=Nunito:wght@300;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:linear-gradient(180deg,#FFF8FF 0%, #F6FFFB 100%);--card:#ffffff;--glass: rgba(255,255,255,0.8);--shadow: 0 12px 30px rgba(20,30,60,0.10);--accent-1: #FF7AB6;--accent-2: #7AE7C7;--accent-3: #FFD27A;--accent-4: #8EA8FF;--text:#1d2633}
+    *{box-sizing:border-box}html,body{height:100%;margin:0;font-family:"Baloo 2","Nunito",system-ui,-apple-system,"Segoe UI",Roboto,Arial;color:var(--text)}body{background:var(--bg);overflow:auto}
+    .emoji-bg{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+    .emoji-bg span{position:absolute;opacity:0.10;font-size:28px;user-select:none;transform-origin:center center;will-change:transform,top,left}
+    .container{position:relative;z-index:5;max-width:1100px;margin:36px auto;padding:22px}
+    .card{background:linear-gradient(180deg,var(--glass),rgba(255,255,255,0.95));border-radius:18px;padding:28px;box-shadow:var(--shadow);backdrop-filter: blur(6px)}
+    header{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+    .back{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:12px;background:linear-gradient(90deg,var(--accent-4),var(--accent-1));color:white;font-weight:600;cursor:pointer;text-decoration:none}
+    h1{margin:0;font-size:22px}
+    p.lead{margin:6px 0 0;color:#2b3b45;opacity:0.9}
+    main{margin-top:12px}
+    section{background:var(--card);border-radius:12px;padding:16px;margin-bottom:14px;box-shadow:0 8px 20px rgba(10,20,40,0.04)}
+    section h2{margin:0 0 8px;font-size:18px}
+    section p{margin:6px 0 0;line-height:1.55;color:#26323a}
+    .sub{margin-top:10px}
+    .sub h3{margin:8px 0 6px;font-size:15px}
+    .list{padding-left:18px}
+    .code{background:#0f1724;color:#e6f0ff;padding:10px;border-radius:8px;font-family:monospace;font-size:13px;overflow:auto}
+    .note{display:inline-block;background:linear-gradient(90deg,var(--accent-2),var(--accent-3));padding:6px 10px;border-radius:999px;font-size:13px;margin-top:8px}
+    footer{margin-top:10px;font-size:13px;color:#26323a;opacity:0.85}
+    @media (max-width:820px){.container{padding:12px}.card{padding:18px}}
+  </style>
+</head>
+<body>
+  <div class="emoji-bg" aria-hidden="true"></div>
+  <div class="container">
+    <div class="card">
+      <header>
+        <a class="back" href="#" onclick="history.back();return false;">⬅️ Kembali</a>
+        <div style="flex:1">
+          <h1>Berpikir Komputasional</h1>
+          <p class="lead">Panduan lengkap: konsep, teknik, contoh, latihan, dan proyek mini untuk melatih kemampuan berpikir komputasional.</p>
+        </div>
+      </header>
+
+      <main>
+        <section id="definisi">
+          <h2>Apa itu Berpikir Komputasional?</h2>
+          <p>Berpikir komputasional adalah pendekatan menyelesaikan masalah yang terstruktur, yang memecah masalah menjadi bagian-bagian, mengenali pola, membuat abstraksi, dan merancang langkah-langkah (algoritma) yang dapat dijalankan — baik oleh manusia maupun komputer.</p>
+        </section>
+
+        <section id="pilar">
+          <h2>Empat Pilar Utama</h2>
+          <div class="sub">
+            <h3>1. Decomposition (Pemecahan Masalah)</h3>
+            <p>Membagi masalah besar menjadi bagian-bagian kecil yang lebih mudah dikelola.</p>
+          </div>
+          <div class="sub">
+            <h3>2. Pattern Recognition (Pengenalan Pola)</h3>
+            <p>Mencari kemiripan dalam data atau proses yang membantu membuat solusi ulang atau generalisasi.</p>
+          </div>
+          <div class="sub">
+            <h3>3. Abstraction (Abstraksi)</h3>
+            <p>Membuang detail yang tidak perlu dan fokus pada aspek penting dari masalah untuk membuat model yang lebih sederhana.</p>
+          </div>
+          <div class="sub">
+            <h3>4. Algorithm Design (Perancangan Algoritma)</h3>
+            <p>Membuat langkah-langkah jelas untuk menyelesaikan setiap bagian masalah dengan efisien.</p>
+          </div>
+        </section>
+
+        <section id="contoh">
+          <h2>Contoh Sederhana</h2>
+          <p>Masalah: <em>Atur daftar tugas berdasarkan prioritas dan tampilkan 3 yang teratas.</em></p>
+          <div class="sub">
+            <h3>1) Decompose</h3>
+            <ul class="list"><li>Terima daftar tugas (nama, prioritas).</li><li>Urutkan daftar berdasarkan prioritas.</li><li>Tampilkan 3 teratas.</li></ul>
+            <h3>2) Pattern</h3>
+            <p>Operasi pengurutan dan pemilihan bagian teratas muncul berulang pada banyak masalah (mis. leaderboard, top-N)</p>
+            <h3>3) Abstraction</h3>
+            <p>Representasikan tugas sebagai pasangan (nama, prioritas) — detail lain (tanggal, tag) bisa diabaikan jika tidak relevan.</p>
+            <h3>4) Algorithm</h3>
+            <div class="code"># Pseudocode
+function top3(tasks):
+  if tasks.length == 0: return []
+  sorted = sort(tasks by priority descending)
+  return sorted[0:3]
+            </div>
+          </div>
+        </section>
+
+        <section id="strategi">
+          <h2>Strategi & Teknik Praktis</h2>
+          <div class="sub">
+            <h3>Abstraksi bertingkat</h3>
+            <p>Mulailah dengan gambaran besar lalu turun ke detail hanya saat diperlukan. Gunakan representasi sederhana (mis. angka, string) sebelum struktur kompleks.</p>
+            <h3>Gunakan contoh konkret</h3>
+            <p>Uji ide dengan contoh kecil (3–5 item). Ini membantu menemukan edge-case lebih cepat.</p>
+            <h3>Refine & iterate</h3>
+            <p>Mulai dengan solusi sederhana (brute-force) lalu optimalkan jika perlu.</p>
+          </div>
+        </section>
+
+        <section id="latihan">
+          <h2>Latihan Praktik</h2>
+          <ol class="list">
+            <li>Decompose: Ambil tugas harianmu, bagi menjadi <em>sub-task</em> yang bisa diselesaikan dalam 15 menit.</li>
+            <li>Pattern: Temukan pola pada data angka (mis. skor siswa) — ada grup yang konsisten?</li>
+            <li>Abstraction: Representasikan kontak telepon hanya dengan nama & nomor; tambahkan detail ketika diperlukan.</li>
+            <li>Algorithm: Tulis pseudocode untuk menghitung rata-rata tanpa menggunakan fungsi bawaan.</li>
+          </ol>
+        </section>
+
+        <section id="proyek-mini">
+          <h2>Proyek Mini (Belajar Aktif)</h2>
+          <ul class="list">
+            <li><strong>Pengelola Tugas Sederhana:</strong> buat aplikasi yang menyimpan tugas, mengurutkan berdasarkan prioritas, dan menandai selesai.</li>
+            <li><strong>Quiz Adaptif:</strong> sistem soal yang memilih pertanyaan berikutnya berdasarkan jawaban peserta (pattern + algorithm).</li>
+            <li><strong>Analisis Kata:</strong> hitung kata paling sering pada teks—latihan decompositon & pattern recognition.</li>
+          </ul>
+          <p class="note">Praktikkan setiap proyek bertahap: rancang, buat pseudocode, implementasi, uji, lalu refactor.</p>
+        </section>
+
+        <section id="penilaian">
+          <h2>Penilaian & Rubrik Sederhana</h2>
+          <p>Gunakan rubrik 4 poin: <em>Decomposition, Pattern, Abstraction, Algorithm</em> — beri skor 0–3 untuk tiap pilar.</p>
+        </section>
+
+        <section id="sumber">
+          <h2>Sumber & Referensi Singkat</h2>
+          <ul class="list">
+            <li>Buku & artikel pengantar berpikir komputasional (terjemahkan ke bahasa lokal bila perlu).</li>
+            <li>Platform latihan: coding kata/visual block (mis. Scratch, Code.org) untuk pemula.</li>
+            <li>Materi tambahan: kursus singkat tentang algoritma dan struktur data untuk memperdalam.</li>
+          </ul>
+        </section>
+
+      </main>
+
+      <footer>Dibuat oleh Aliya & M.</footer>
+    </div>
+  </div>
+
+  <script>
+    // Emoji background
+    const EMOJIS = ['🧠','💡','🧩','📚','💻','🔎','📝','🎯','🔁','⚙️','🧭','✨'];
+    const bg = document.querySelector('.emoji-bg');
+    const COUNT = 30;
+    function rand(min,max){return Math.random()*(max-min)+min}
+    for(let i=0;i<COUNT;i++){
+      const s = document.createElement('span');
+      s.textContent = EMOJIS[Math.floor(Math.random()*EMOJIS.length)];
+      const size = Math.floor(rand(20,60));
+      s.style.fontSize = size + 'px';
+      s.style.left = rand(-6,100) + 'vw';
+      s.style.top = rand(-6,100) + 'vh';
+      s.style.opacity = (rand(5,12)/100).toFixed(2);
+      const dur = rand(12,34);
+      s.style.animation = `floatY ${dur}s ease-in-out ${rand(0,4)}s infinite`;
+      bg.appendChild(s);
+      (function(el, amplitude, speed){
+        let start = performance.now() + rand(0,10000);
+        function step(now){
+          const t = (now + start)/1000*speed;
+          const dx = Math.sin(t)*amplitude;
+          const dy = Math.cos(t*0.6)*(amplitude/2);
+          el.style.transform = `translate3d(${dx}px,${dy}px,0) rotate(${(Math.sin(t)*8).toFixed(2)}deg)`;
+          requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      })(s, rand(6,28), rand(0.5,1.4));
+    }
+    const media = window.matchMedia('(prefers-reduced-motion: reduce)');
+    function applyReduced(){if(media.matches){document.querySelectorAll('.emoji-bg span').forEach(e=>{e.style.animation='none'})}}
+    media.addEventListener('change', applyReduced);applyReduced();
+    const style = document.createElement('style');style.textContent = `@keyframes floatY{0%{transform:translate3d(0,0,0) rotate(0deg)}50%{transform:translate3d(0,-28px,0) rotate(12deg)}100%{transform:translate3d(0,0,0) rotate(0deg)}}`;
+    document.head.appendChild(style);
+  </script>
+</body>
+</html>

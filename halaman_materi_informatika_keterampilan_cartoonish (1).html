@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Materi Lengkap .informatika & Keterampilan</title>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700;800&family=Nunito:wght@300;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:linear-gradient(180deg,#FFF8FF 0%, #F6FFFB 100%);
+      --card:#ffffff;
+      --glass: rgba(255,255,255,0.8);
+      --shadow: 0 12px 30px rgba(20,30,60,0.10);
+      --accent-1: #FF7AB6;
+      --accent-2: #7AE7C7;
+      --accent-3: #FFD27A;
+      --accent-4: #8EA8FF;
+      --accent-5: #FF9E7A;
+      --text:#1d2633;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:"Baloo 2", "Nunito", system-ui,-apple-system,"Segoe UI",Roboto,Arial;color:var(--text)}
+    body{background:var(--bg);overflow:auto}
+
+    /* emoji background layer */
+    .emoji-bg{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+    .emoji-bg span{position:absolute;opacity:0.10;font-size:28px;user-select:none;transform-origin:center center;will-change:transform,top,left}
+
+    /* page */
+    .container{position:relative;z-index:5;max-width:1100px;margin:36px auto;padding:22px}
+    .card{background:linear-gradient(180deg,var(--glass),rgba(255,255,255,0.95));border-radius:18px;padding:28px;box-shadow:var(--shadow);backdrop-filter: blur(6px)}
+
+    header{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+    .back{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:12px;background:linear-gradient(90deg,var(--accent-4),var(--accent-1));color:white;font-weight:600;cursor:pointer;text-decoration:none}
+    .head-title{flex:1}
+    h1{margin:0;font-size:22px}
+    p.lead{margin:6px 0 0;color:#2b3b45;opacity:0.9}
+
+    /* content */
+    main{margin-top:12px}
+    section{background:var(--card);border-radius:12px;padding:16px;margin-bottom:14px;box-shadow:0 8px 20px rgba(10,20,40,0.04)}
+    section h2{margin:0 0 8px;font-size:18px}
+    section p{margin:6px 0 0;line-height:1.5;color:#26323a}
+    .sub{margin-top:10px}
+    .sub h3{margin:8px 0 6px;font-size:15px}
+    .list{padding-left:18px}
+    .code{background:#0f1724;color:#e6f0ff;padding:10px;border-radius:8px;font-family:monospace;font-size:13px;overflow:auto}
+    .note{display:inline-block;background:linear-gradient(90deg,var(--accent-2),var(--accent-3));padding:6px 10px;border-radius:999px;font-size:13px;margin-top:8px}
+
+    footer{margin-top:10px;font-size:13px;color:#26323a;opacity:0.85}
+
+    @media (max-width:820px){.container{padding:12px}.card{padding:18px}}
+  </style>
+</head>
+<body>
+  <div class="emoji-bg" aria-hidden="true"></div>
+  <div class="container">
+    <div class="card">
+      <header>
+        <a class="back" href="#" onclick="history.back();return false;">⬅️ Kembali</a>
+        <div class="head-title">
+          <h1>Materi Lengkap: .informatika & Keterampilan</h1>
+          <p class="lead">Panduan ringkas dan padat untuk pelajar — berisi konsep dasar, contoh, dan praktik yang bisa langsung dipelajari.</p>
+        </div>
+      </header>
+
+      <main>
+        <section id="algoritma">
+          <h2>Algoritma — Konsep Inti</h2>
+          <p>Algoritma adalah urutan langkah terstruktur untuk menyelesaikan masalah. Inti pembelajaran algoritma: pemahaman problem, merancang langkah, menganalisis kompleksitas, dan menguji solusi.</p>
+
+          <div class="sub">
+            <h3>Langkah belajar</h3>
+            <ol class="list">
+              <li>Definisikan masalah secara eksplisit (input, output, batasan).</li>
+              <li>Tentukan pendekatan (brute force, greedy, divide & conquer, dynamic programming).</li>
+              <li>Rancang pseudocode sebelum menulis kode.</li>
+              <li>Analisis waktu (O-notation) dan ruang.</li>
+              <li>Uji dengan contoh kecil dan edge case.</li>
+            </ol>
+          </div>
+
+          <div class="sub">
+            <h3>Contoh singkat — mencari maksimum pada list</h3>
+            <div class="code">function max(arr):
+  if arr.length == 0: return null
+  m = arr[0]
+  for x in arr:
+    if x &gt; m: m = x
+  return m
+            </div>
+            <p>Kompleksitas: O(n) waktu, O(1) ruang.</p>
+          </div>
+        </section>
+
+        <section id="pemrograman">
+          <h2>Pemrograman — Dasar yang Perlu Dikuasai</h2>
+          <p>Pemrograman adalah menerjemahkan algoritma ke bentuk yang bisa dijalankan komputer. Fokus utama: sintaks bahasa, struktur data, kontrol alur, dan debugging.</p>
+
+          <div class="sub">
+            <h3>Struktur data penting</h3>
+            <ul class="list">
+              <li><strong>Array / List:</strong> penyimpanan berurutan.</li>
+              <li><strong>Stack & Queue:</strong> LIFO dan FIFO.</li>
+              <li><strong>Set & Map:</strong> operasi unik & pencarian cepat.</li>
+              <li><strong>Linked List, Tree, Graph:</strong> untuk struktur lebih kompleks.</li>
+            </ul>
+          </div>
+
+          <div class="sub">
+            <h3>Debugging & best practices</h3>
+            <ul class="list">
+              <li>Tulis komentar singkat dan nama variabel jelas.</li>
+              <li>Gunakan <em>print</em> / <em>console.log</em> untuk melacak nilai sementara.</li>
+              <li>Tulis test sederhana untuk fungsi penting.</li>
+              <li>Refactor ketika solusi mulai berulang/rumit.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="jaringan">
+          <h2>Jaringan — Gambaran Umum</h2>
+          <p>Jaringan komputer menghubungkan perangkat agar bisa bertukar data. Pelajari model OSI (7 lapis) atau TCP/IP (4 lapis) untuk memahami lokasi masalah dan protokol umum.</p>
+
+          <div class="sub">
+            <h3>Konsep penting</h3>
+            <ul class="list">
+              <li><strong>IP & subnet:</strong> penomoran perangkat dalam jaringan.</li>
+              <li><strong>DNS:</strong> menerjemahkan nama domain ke alamat IP.</li>
+              <li><strong>HTTP/HTTPS:</strong> protokol web; HTTPS terenkripsi.</li>
+              <li><strong>Routing & Switching:</strong> bagaimana paket berpindah.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="keamanan">
+          <h2>Keamanan Dasar</h2>
+          <p>Keamanan informasi meliputi menjaga kerahasiaan, integritas, dan ketersediaan data. Etika keamanan sangat penting — jangan gunakan pengetahuan untuk merusak.</p>
+
+          <div class="sub">
+            <h3>Praktik aman</h3>
+            <ul class="list">
+              <li>Gunakan sandi kuat &amp; otentikasi dua faktor.</li>
+              <li>Enkripsi data sensitif (TLS/HTTPS, enkripsi file).</li>
+              <li>Update perangkat lunak &amp; patching rutin.</li>
+              <li>Backup data berkala dan uji pemulihan.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="catatan">
+          <h2>Catatan Efektif</h2>
+          <p>Mencatat dengan metode yang tepat membuat belajar cepat dan terstruktur.</p>
+
+          <div class="sub">
+            <h3>Metode populer</h3>
+            <ul class="list">
+              <li><strong>Cornell Notes:</strong> bagilah halaman menjadi ringkasan, catatan, dan pertanyaan.</li>
+              <li><strong>Mindmap:</strong> visualisasi konsep & hubungan antar topik.</li>
+              <li><strong>Flashcard (Anki):</strong> untuk menghafal definisi atau sintaks dengan <em>spaced repetition</em>.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="waktu">
+          <h2>Manajemen Waktu</h2>
+          <p>Keterampilan ini penting agar belajar tetap konsisten dan produktif.</p>
+
+          <div class="sub">
+            <h3>Teknik & tips</h3>
+            <ul class="list">
+              <li><strong>Pomodoro:</strong> 25 menit fokus, 5 menit istirahat; ulangi 4 kali lalu istirahat panjang.</li>
+              <li><strong>Prioritas (Eisenhower):</strong> pisahkan tugas menurut penting &amp; mendesak.</li>
+              <li>Jangan multitask untuk tugas yang membutuhkan fokus mendalam.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="komunikasi">
+          <h2>Komunikasi & Kolaborasi</h2>
+          <p>Kemampuan menyampaikan ide dan bekerja dengan tim adalah kunci sukses projek nyata.</p>
+
+          <div class="sub">
+            <h3>Skill praktis</h3>
+            <ul class="list">
+              <li>Presentasi: struktur jelas — pembuka, isi, penutup; gunakan contoh konkret.</li>
+              <li>Code review: beri umpan balik konstruktif dan terfokus pada solusi.</li>
+              <li>Version control (Git): pelajari branching &amp; pull request workflow.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="problem">
+          <h2>Problem Solving</h2>
+          <p>Berpikir sistematis membuat masalah kompleks menjadi terpecahkan.</p>
+
+          <div class="sub">
+            <h3>Langkah umum</h3>
+            <ol class="list">
+              <li>Pahami masalah dan ukurannya.</li>
+              <li>Buat asumsi yang wajar dan verifikasi jika perlu.</li>
+              <li>Pisahkan masalah menjadi sub-masalah sederhana.</li>
+              <li>Cari solusi sederhana dulu, kemudian optimalkan.</li>
+              <li>Dokumentasikan solusi &amp; alasan pemilihan metode.</li>
+            </ol>
+          </div>
+        </section>
+
+        <section id="proyek">
+          <h2>Proyek Mini (Latihan)</h2>
+          <p>Beberapa ide sederhana untuk mengaplikasikan pengetahuan:</p>
+          <ul class="list">
+            <li><strong>To-do app:</strong> CRUD sederhana untuk belajar struktur data & DOM (web).</li>
+            <li><strong>Quiz interaktif:</strong> implementasi soal, skor, dan penyimpanan hasil sementara.</li>
+            <li><strong>Simulasi jaringan:</strong> buat diagram topologi dan jelaskan alur paket.</li>
+          </ul>
+          <p class="note">Tips: mulai kecil, lalu tambahkan fitur bertahap.</p>
+        </section>
+
+      </main>
+
+      <footer>dibuat oleh Aliya dan M.</footer>
+    </div>
+  </div>
+
+  <script>
+    // Emoji pool
+    const EMOJIS = ['💻','🧠','📚','⚙️','🧰','🌐','🔒','🎨','📝','⏱️','🗣️','🔧','📊','✨','🎯','💡','🤖','📡','🔍','🧩','🌈','🍎'];
+    const bg = document.querySelector('.emoji-bg');
+    const COUNT = 36;
+    function rand(min,max){return Math.random()*(max-min)+min}
+    for(let i=0;i<COUNT;i++){
+      const s = document.createElement('span');
+      s.textContent = EMOJIS[Math.floor(Math.random()*EMOJIS.length)];
+      const size = Math.floor(rand(20,56));
+      s.style.fontSize = size + 'px';
+      s.style.left = rand(-8,100) + 'vw';
+      s.style.top = rand(-6,100) + 'vh';
+      s.style.opacity = (rand(6,12)/100).toFixed(2);
+      const dur = rand(10,30);
+      s.style.animation = `floatY ${dur}s ease-in-out ${rand(0,4)}s infinite`;
+      bg.appendChild(s);
+      (function(el, amplitude, speed){
+        let start = performance.now() + rand(0,10000);
+        function step(now){
+          const t = (now + start)/1000*speed;
+          const dx = Math.sin(t)*amplitude;
+          const dy = Math.cos(t*0.6)* (amplitude/2);
+          el.style.transform = `translate3d(${dx}px,${dy}px,0) rotate(${(Math.sin(t)*8).toFixed(2)}deg)`;
+          requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      })(s, rand(6,28), rand(0.6,1.4));
+    }
+    // Respect reduced motion
+    const media = window.matchMedia('(prefers-reduced-motion: reduce)');
+    function applyReduced(){if(media.matches){document.querySelectorAll('.emoji-bg span').forEach(e=>{e.style.animation='none'})}}
+    media.addEventListener('change', applyReduced);applyReduced();
+
+    // keyframes injected via JS to keep CSS compact
+    const style = document.createElement('style');
+    style.textContent = `@keyframes floatY{0%{transform:translate3d(0,0,0) rotate(0deg)}50%{transform:translate3d(0,-28px,0) rotate(12deg)}100%{transform:translate3d(0,0,0) rotate(0deg)}}`;
+    document.head.appendChild(style);
+  </script>
+</body>
+</html>

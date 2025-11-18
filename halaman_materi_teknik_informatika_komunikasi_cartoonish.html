@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Materi: Teknik Informatika & Komunikasi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700;800&family=Nunito:wght@300;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:linear-gradient(180deg,#FFF8FF 0%, #F6FFFB 100%);--card:#ffffff;--glass: rgba(255,255,255,0.8);--shadow: 0 12px 30px rgba(20,30,60,0.10);--accent-1: #FF7AB6;--accent-2: #7AE7C7;--accent-3: #FFD27A;--accent-4: #8EA8FF;--text:#1d2633}
+    *{box-sizing:border-box}html,body{height:100%;margin:0;font-family:"Baloo 2","Nunito",system-ui,color:var(--text)}body{background:var(--bg);overflow:auto}
+    .emoji-bg{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+    .emoji-bg span{position:absolute;opacity:0.10;font-size:28px;user-select:none;transform-origin:center center;will-change:transform,top,left}
+    .container{position:relative;z-index:5;max-width:1100px;margin:36px auto;padding:22px}
+    .card{background:linear-gradient(180deg,var(--glass),rgba(255,255,255,0.95));border-radius:18px;padding:28px;box-shadow:var(--shadow);backdrop-filter: blur(6px)}
+    header{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+    .back{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:12px;background:linear-gradient(90deg,var(--accent-4),var(--accent-1));color:white;font-weight:600;cursor:pointer;text-decoration:none}
+    h1{margin:0;font-size:22px}
+    p.lead{margin:6px 0 0;color:#2b3b45;opacity:0.9}
+    main{margin-top:12px}
+    section{background:var(--card);border-radius:12px;padding:16px;margin-bottom:14px;box-shadow:0 8px 20px rgba(10,20,40,0.04)}
+    section h2{margin:0 0 8px;font-size:18px}
+    section p{margin:6px 0 0;line-height:1.55;color:#26323a}
+    .sub{margin-top:10px}
+    .sub h3{margin:8px 0 6px;font-size:15px}
+    .list{padding-left:18px}
+    .note{display:inline-block;background:linear-gradient(90deg,var(--accent-2),var(--accent-3));padding:6px 10px;border-radius:999px;font-size:13px;margin-top:8px}
+    footer{margin-top:10px;font-size:13px;color:#26323a;opacity:0.85}
+  </style>
+</head>
+<body>
+  <div class="emoji-bg" aria-hidden="true"></div>
+
+  <div class="container">
+    <div class="card">
+      <header>
+        <a class="back" href="#" onclick="history.back();return false;">⬅️ Kembali</a>
+        <div style="flex:1">
+          <h1>Teknik Informatika & Komunikasi</h1>
+          <p class="lead">Materi lengkap mengenai konsep dasar TIK, jaringan, perangkat keras, perangkat lunak, komunikasi digital, dan etika teknologi.</p>
+        </div>
+      </header>
+
+      <main>
+        <section>
+          <h2>1. Pengantar Teknik Informatika & Komunikasi</h2>
+          <p>Teknik Informatika dan Komunikasi (TIK) mencakup cara manusia menggunakan perangkat komputer, jaringan, dan sistem komunikasi untuk mengelola, mengirimkan, dan memproses informasi.</p>
+        </section>
+
+        <section>
+          <h2>2. Perangkat Keras (Hardware)</h2>
+          <div class="sub">
+            <h3>Komponen Utama</h3>
+            <ul class="list">
+              <li>CPU — otak komputer</li>
+              <li>RAM — tempat penyimpanan sementara</li>
+              <li>Penyimpanan (SSD/HDD)</li>
+              <li>Motherboard — penghubung semua komponen</li>
+              <li>Input/Output (keyboard, mouse, monitor)</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2>3. Perangkat Lunak (Software)</h2>
+          <div class="sub">
+            <h3>Kategori</h3>
+            <ul class="list">
+              <li>Sistem Operasi (Windows, Linux)</li>
+              <li>Aplikasi produktivitas (Office, browser)</li>
+              <li>Software komunikasi (Zoom, WhatsApp)</li>
+              <li>Software kreatif (editor video, desain)</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2>4. Jaringan Komputer</h2>
+          <p>Jaringan memungkinkan komputer saling bertukar data. Ada dua jenis utama:</p>
+          <ul class="list">
+            <li><strong>LAN</strong> — jaringan lokal di rumah/sekolah</li>
+            <li><strong>WAN</strong> — jaringan luas (internet)</li>
+          </ul>
+          <p>Perangkat penting:</p>
+          <ul class="list">
+            <li>Router — pengatur lalu lintas data</li>
+            <li>Switch — penyambung banyak perangkat</li>
+            <li>Modem — penghubung jaringan rumah ke ISP</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>5. Komunikasi Digital</h2>
+          <p>Komunikasi digital adalah penyampaian pesan melalui media elektronik. Contoh:</p>
+          <ul class="list">
+            <li>Email</li>
+            <li>Chat dan pesan instan</li>
+            <li>Video conference</li>
+            <li>Media sosial</li>
+          </ul>
+          <p>Prinsip komunikasi digital yang baik:</p>
+          <ul class="list">
+            <li>Bahasa sopan dan jelas</li>
+            <li>Gunakan emoji seperlunya</li>
+            <li>Hindari spam atau broadcast berlebihan</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>6. Keamanan Informasi</h2>
+          <p>Keamanan digital sangat penting agar data tidak bocor atau dicuri.</p>
+          <ul class="list">
+            <li>Gunakan kata sandi kuat</li>
+            <li>Aktifkan autentikasi dua langkah</li>
+            <li>Hindari link mencurigakan</li>
+            <li>Jangan bagikan data pribadi sembarangan</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>7. Etika Teknologi</h2>
+          <p>Ketika menggunakan teknologi, kita harus menjaga sikap dan tanggung jawab.</p>
+          <ul class="list">
+            <li>Menghormati privasi orang lain</li>
+            <li>Tidak menyebarkan hoaks</li>
+            <li>Tidak melakukan plagiarisme</li>
+            <li>Menggunakan teknologi untuk hal positif</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>8. Latihan Pemahaman</h2>
+          <ul class="list">
+            <li>Sebutkan tiga contoh perangkat keras dan fungsinya!</li>
+            <li>Jelaskan perbedaan LAN dan WAN!</li>
+            <li>Apa saja tips keamanan digital yang baik?</li>
+            <li>Berikan contoh etika komunikasi digital yang benar!</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>9. Proyek Mini</h2>
+          <p>Cobalah salah satu:</p>
+          <ul class="list">
+            <li>Buat poster digital tentang keamanan siber.</li>
+            <li>Rancang topologi jaringan sederhana untuk sekolah.</li>
+            <li>Buat panduan etika berkomunikasi di grup WhatsApp kelas.</li>
+          </ul>
+          <p class="note">Proyek dapat dibuat di Canva, Google Docs, atau aplikasi desain lainnya.</p>
+        </section>
+
+      </main>
+
+      <footer>Dibuat oleh Aliya & M.</footer>
+    </div>
+  </div>
+
+  <script>
+    const EMOJIS = ['💻','📡','📱','🛰️','💬','🧠','✨','📝','📚','🖥️','🔧'];
+    const bg = document.querySelector('.emoji-bg');
+    const COUNT = 32;
+    function rand(min,max){return Math.random()*(max-min)+min}
+    for(let i=0;i<COUNT;i++){
+      const s = document.createElement('span');
+      s.textContent = EMOJIS[Math.floor(Math.random()*EMOJIS.length)];
+      s.style.fontSize = rand(22,58)+'px';
+      s.style.left = rand(-6,100)+'vw';
+      s.style.top = rand(-6,100)+'vh';
+      s.style.opacity = (rand(5,12)/100).toFixed(2);
+      const dur = rand(14,32);
+      s.style.animation = `floatY ${dur}s ease-in-out infinite`;
+      bg.appendChild(s);
+    }
+    const style = document.createElement('style');style.textContent = `@keyframes floatY{0%{transform:translateY(0)}50%{transform:translateY(-28px)}100%{transform:translateY(0)}}`;
+    document.head.appendChild(style);
+  </script>
+</body>
+</html>
