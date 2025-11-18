@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Login Aliya-XA</title>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f6f8ff;
+      --card:#fff;
+      --accent:#ff6b6b;
+      --accent-2:#4f46e5;
+      --glass: rgba(255,255,255,0.6);
+      --shadow: 0 12px 30px rgba(17,24,39,0.08);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;}
+    body{
+      margin:0;
+      font-family:'Inter',sans-serif;
+      background:linear-gradient(180deg,#EAF2FF 0%,#F6F8FF 60%);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+    }
+
+    .emoji-field{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:0.6;}
+    .emoji{
+      position:absolute;font-size:28px;
+      opacity:0.18;
+      filter:drop-shadow(0 6px 8px rgba(0,0,0,0.06));
+      animation:float linear infinite;
+    }
+    @keyframes float{
+      0%{transform:translateY(0) rotate(0deg)}
+      50%{transform:translateY(-40px) rotate(15deg)}
+      100%{transform:translateY(0) rotate(0deg)}
+    }
+
+    .card{
+      position:relative;z-index:2;width:380px;max-width:92%;background:var(--card);
+      border-radius:22px;padding:28px;box-shadow:var(--shadow);
+      border:3px solid rgba(255,255,255,0.6);
+      backdrop-filter:blur(6px);
+    }
+    .logo{display:flex;gap:12px;align-items:center;margin-bottom:14px;}
+    .blob{
+      width:64px;height:64px;border-radius:18px;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      display:flex;align-items:center;justify-content:center;font-family:'Baloo 2';font-size:28px;color:white;
+      box-shadow:0 10px 30px rgba(79,70,229,0.18);
+      transition:.28s;
+    }
+    .blob:hover{transform:rotate(-6deg) scale(1.05)}
+
+    h1{font-family:'Baloo 2';margin:0;font-size:22px;color:#182033}
+    p.sub{margin:6px 0 18px;color:#5b6b84;font-size:13px}
+
+    form{display:flex;flex-direction:column;gap:12px;}
+    .field{
+      position:relative;background:linear-gradient(180deg,rgba(245,247,255,0.9),#fff);
+      border-radius:12px;padding:10px 12px;border:2px solid rgba(16,24,40,0.05);
+      display:flex;align-items:center;gap:10px;
+    }
+    .field input{
+      border:0;outline:0;background:transparent;font-size:15px;width:100%;
+      color:#122231;font-family:inherit;
+    }
+
+    .btn{
+      margin-top:6px;padding:12px 14px;border-radius:12px;border:0;
+      background:linear-gradient(90deg,var(--accent),#ff9a76);
+      color:white;font-weight:700;cursor:pointer;font-size:15px;
+      box-shadow:0 12px 30px rgba(255,107,107,0.18);
+      transition:.22s;
+    }
+    .btn:hover{transform:translateY(-4px) rotate(-1deg);box-shadow:0 20px 40px rgba(79,70,229,0.12)}
+
+    .msg{font-size:14px;padding:10px;border-radius:10px;margin-top:8px;display:none}
+    .msg.error{background:#FFF1F0;color:#9b2c2c;border:1px solid rgba(156,28,36,0.08)}
+    .msg.ok{background:#F0FFF4;color:#14532d;border:1px solid rgba(20,83,45,0.06)}
+
+    .corner-hero{
+      position:absolute;right:-40px;top:-50px;width:140px;height:140px;
+      border-radius:50%;background:radial-gradient(circle at 30% 30%, rgba(79,70,229,0.12), rgba(255,107,107,0.06));
+      transform:rotate(12deg);filter:blur(10px);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="emoji-field"></div>
+
+  <main class="card">
+    <div class="logo">
+      <div class="blob">✨</div>
+      <div>
+        <h1>Login</h1>
+        <p class="sub">Masukan Username & Password untuk melanjutkan</p>
+      </div>
+    </div>
+
+    <form id="loginForm" autocomplete="off" onsubmit="return false;">
+      <label class="field">
+        <input id="username" type="text" placeholder="Username" />
+      </label>
+
+      <label class="field">
+        <input id="password" type="password" placeholder="Password" />
+      </label>
+
+      <button id="btnLogin" class="btn">Login</button>
+
+      <div class="msg error" id="errMsg"></div>
+      <div class="msg ok" id="okMsg"></div>
+    </form>
+
+    <div class="corner-hero"></div>
+  </main>
+
+<script>
+(function(){
+  const emojis=['😺','🌟','🍥','🍩','🧸','🍭','🎈','🌈','✨','💫','🔥','💖','🌸','🎀','🎮','🍓','🍒','🦄','🐣','🎵'];
+  const field=document.querySelector('.emoji-field');
+  for(let i=0;i<36;i++){
+    const el=document.createElement('div');
+    el.className='emoji';
+    el.textContent=emojis[Math.floor(Math.random()*emojis.length)];
+    const size=Math.floor(Math.random()*26)+18;
+    el.style.fontSize=size+'px';
+    el.style.left=Math.random()*100+'%';
+    el.style.top=Math.random()*100+'%';
+    el.style.animationDuration=(8+Math.random()*12)+'s';
+    el.style.animationDelay=(Math.random()*-20)+'s';
+    field.appendChild(el);
+  }
+})();
+
+const VALID_USERNAME = 'Aliya-XA';
+const VALID_PASSWORD = 'aliyagemoy';
+const btn = document.getElementById('btnLogin');
+const err = document.getElementById('errMsg');
+const ok = document.getElementById('okMsg');
+
+function showError(t){err.textContent=t;err.style.display='block';ok.style.display='none';}
+function showOk(t){ok.textContent=t;ok.style.display='block';err.style.display='none';}
+
+btn.addEventListener('click', e => {
+  e.preventDefault();
+  const u=document.getElementById('username').value.trim();
+  const p=document.getElementById('password').value;
+
+  if(!u || !p){showError('Isi username dan password dahulu.');return;}
+
+  btn.disabled=true;
+  btn.textContent='✨ Memeriksa...';
+
+  setTimeout(()=>{
+    if(u===VALID_USERNAME && p===VALID_PASSWORD){
+      showOk('Berhasil! Selamat datang 🎉');
+      btn.textContent='✓ Masuk';
+
+      setTimeout(()=>{
+        window.location.href="https://kurosecc-couy.github.io/Aliyah-X-A/main_menu_updated.html";
+      },700);
+
+    } else {
+      showError('Username atau password salah.');
+      btn.textContent='Login';
+    }
+    btn.disabled=false;
+  },700);
+});
+</script>
+
+</body>
+</html>
