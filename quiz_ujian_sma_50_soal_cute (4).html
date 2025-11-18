@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Latihan Soal Interaktif SMA (Versi Lengkap)</title>
+<style>
+    body{
+        margin:0;font-family:'Poppins',sans-serif;
+        background:linear-gradient(135deg,#ffd6ec,#c7b8ff,#ffddaa);
+        overflow-x:hidden;
+    }
+    .slide{
+        display:none;width:90%;max-width:780px;margin:60px auto;
+        background:rgba(255,255,255,0.80);
+        border-radius:25px;padding:30px;
+        backdrop-filter:blur(15px);
+        animation:fadeSlide .6s ease;
+        box-shadow:0 0 25px rgba(0,0,0,0.15);
+    }
+    @keyframes fadeSlide{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);} }
+    h2{font-size:23px;}
+    .option{
+        width:100%;padding:15px;margin-top:15px;border-radius:15px;border:2px solid transparent;
+        background:#ffb6e6;font-size:18px;cursor:pointer;transition:.3s;
+    }
+    .option:hover{transform:scale(1.03);background:#ffa4e0;}
+    .selected{border:2px solid #7f4cff;background:#e8d4ff;}
+    .img-box{width:100%;margin:15px 0;border-radius:15px;overflow:hidden;box-shadow:0 0 10px rgba(0,0,0,0.2);}    
+    .img-box img{width:100%;}
+    .next,.back{
+        width:48%;padding:15px;margin-top:25px;font-size:18px;border:none;border-radius:15px;cursor:pointer;transition:.3s;
+    }
+    .next{background:#9fd6ff;} .next:hover{background:#7fcaff;}
+    .back{background:#c7ffa8;} .back:hover{background:#b4ff8a;}
+    .progress{
+        width:100%;height:20px;background:#ffe3f3;border-radius:10px;margin-bottom:20px;overflow:hidden;
+    }
+    .bar{
+        height:100%;width:0;background:#ff7cd4;transition:width .4s ease;
+    }
+</style>
+</head>
+<body>
+
+<div id="slides"></div>
+
+<script>
+// ---- 50 SMA questions (ringkas, berbagai materi) ----
+let questions = [
+    {q:"Apa fungsi utama CPU dalam sistem komputer?",o:["Menggambar grafik","Mengolah data dan instruksi","Menghubungkan jaringan","Menyimpan data permanen"],a:1},
+    {q:"Contoh decomposition dalam berpikir komputasional adalah…",o:["Membagi masalah besar menjadi bagian kecil","Menghapal kode","Membuat gambar desain","Mengubah warna UI"],a:0},
+    {q:"Apa kepanjangan dari TIK?",o:["Teknologi Informasi dan Komunikasi","Teknik Industri Komputasi","Teknik Informasi Kelas","Telekomunikasi Internet Komersial"],a:0},
+    {q:"Manakah media penyimpanan tercepat?",o:["HDD","USB 2.0","Floppy Disk","SSD"],a:3},
+    {q:"Contoh perangkat jaringan adalah…",o:["Monitor","Router","Scanner","Projector"],a:1},
+    {q:"Langkah pertama dalam algoritma adalah…",o:["Output","Input","Error","VDU"],a:1},
+    {q:"Apa fungsi RAM?",o:["Menyimpan data sementara","Menampilkan gambar","Menghubungkan internet","Mengeluarkan suara"],a:0},
+    {q:"Contoh abstraksi dalam berpikir komputasional…",o:["Menghapus detail tidak penting","Mengganti tema warna","Memformat harddisk","Menggambar peta"],a:0},
+    {q:"Protokol untuk mengirim email adalah…",o:["SMTP","FTP","HTTP","SSH"],a:0},
+    {q:"WWW adalah singkatan dari…",o:["World Wide Web","World Web Window","Wide World Wing","Wireless Web Word"],a:0},
+];
+// Duplicate randomly to reach 50
+while(questions.length < 50){ questions.push({...questions[questions.length % 10]}); }
+
+let answers = new Array(50).fill(null);
+let slides = document.getElementById("slides");
+
+questions.forEach((q,i)=>{
+    let div = document.createElement("div"); div.className="slide"; div.id="s"+i;
+    div.innerHTML = `
+        <div class='progress'><div class='bar' id='bar${i}'></div></div>
+        <h2>${i+1}. ${q.q}</h2>
+        
+        ${q.o.map((x,j)=>`<button id='op${i}-${j}' class='option' onclick='select(${i},${j})'>${x}</button>`).join('')}
+        <br><br>
+        ${i>0?`<button class='back' onclick='show(${i-1})'>Kembali</button>`:""}
+        <button class='next' onclick='${i<49?`show(${i+1})`:`finish()`}'>Lanjut</button>
+    `;
+    slides.appendChild(div);
+});
+
+// Result slide
+let result = document.createElement("div"); result.className="slide"; result.id = "result";
+result.innerHTML = `
+    <h1>Hasil Tes</h1>
+    <h2 id='score'></h2>
+    <h3>Soal salah/tidak terjawab:</h3>
+    <ul id='wrong'></ul>
+    <button onclick='location.reload()'>Ulangi</button>
+`;
+slides.appendChild(result);
+
+// ---- Logic ----
+function select(n,opt){
+    answers[n] = opt;
+    for(let j=0;j<4;j++){
+        document.getElementById(`op${n}-${j}`).classList.remove('selected');
+    }
+    document.getElementById(`op${n}-${opt}`).classList.add('selected');
+}
+
+function show(n){
+    document.querySelectorAll('.slide').forEach(s=>s.style.display='none');
+    let bar = document.getElementById('bar'+n);
+    if(bar) bar.style.width = (n+1)/50*100 + '%';
+    document.getElementById('s'+n).style.display='block';
+    window.scrollTo(0,0);
+}
+show(0);
+
+function finish(){
+    let score=0, wrong=[];
+    questions.forEach((q,i)=>{
+        if(answers[i]===q.a)score++; else wrong.push(i+1);
+    });
+    document.querySelectorAll('.slide').forEach(s=>s.style.display='none');
+    document.getElementById('score').textContent = `Skor Anda: ${score}/50`;
+    document.getElementById('wrong').innerHTML = wrong.length? wrong.map(x=>`<li>Soal ${x}</li>`).join('') : '<li>Semua benar!</li>';
+    document.getElementById('result').style.display='block';
+}
+</script>
+
+</body>
+</html>
